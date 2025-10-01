@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Servir archivos estáticos (frontend en carpeta public)
+// 👉 Servir la carpeta "public"
 app.use(express.static(path.join(__dirname, "public")));
 
 // Conexión a Clever Cloud MySQL
@@ -49,7 +49,7 @@ app.get("/usuarios", (req, res) => {
   });
 });
 
-// Ruta para cualquier otra petición (sirve index.html)
+// 👉 Ruta catch-all para frontend
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
