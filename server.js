@@ -11,10 +11,10 @@ app.use(express.json());
 
 // Conexión a Clever Cloud MySQL
 const connection = mysql.createConnection({
-  host: "baux8tmz2mpirzrqrtcf-mysql.services.clever-cloud.com",
-  user: "uk58ug1lhijudldm",
-  password: "Ka0aXnAHqX45AbONPN5Q",
-  database: "baux8tmz2mpirzrqrtcf",
+  host: "bmoslgn4va9vank99zwx-mysql.services.clever-cloud.com",
+  user: "utayu26aapnkejhu",
+  password: "QnAxYkmP0wAopF6Qjrvl",
+  database: "bmoslgn4va9vank99zwx",
   port: 3306,
 });
 
