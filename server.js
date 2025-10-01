@@ -1,6 +1,7 @@
 const express = require("express");
 const mysql = require("mysql2");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -8,6 +9,9 @@ const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(cors());
 app.use(express.json());
+
+// Servir archivos estáticos (frontend en carpeta public)
+app.use(express.static(path.join(__dirname, "public")));
 
 // Conexión a Clever Cloud MySQL
 const connection = mysql.createConnection({
@@ -43,6 +47,11 @@ app.get("/usuarios", (req, res) => {
     if (err) return res.status(500).json({ error: err.message });
     res.json(results);
   });
+});
+
+// Ruta para cualquier otra petición (sirve index.html)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 // Iniciar servidor
